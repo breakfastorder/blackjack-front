@@ -72,6 +72,7 @@ const onCreateTableSuccess = function (data) {
   console.log(data)
   console.log('FUCK YES')
   store.tableId = data.id
+  store.tableData = data
 }
 
 const onCreateTableFailure = function (data) {

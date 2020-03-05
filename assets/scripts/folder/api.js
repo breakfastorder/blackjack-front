@@ -39,7 +39,7 @@ const changePassword = function (data) {
   })
 }
 
-const createHand = function (data) {
+const createHand = function (user, data) {
   return $.ajax({
     method: 'POST',
     url: config.apiUrl + '/hands',
@@ -92,6 +92,17 @@ const createTable = function (data) {
   })
 }
 
+const createTablePopulated = function (data) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/tables',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const updateTable = function (data) {
   return $.ajax({
     method: 'PATCH',
@@ -129,6 +140,7 @@ module.exports = {
   signOut,
   changePassword,
   createTable,
+  createTablePopulated,
   updateTable,
   indexTable,
   deleteTable,

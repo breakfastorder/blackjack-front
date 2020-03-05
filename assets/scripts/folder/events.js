@@ -44,7 +44,7 @@ const onChangePassword = function (event) {
     .catch(ui.onChangePasswordFailure)
 }
 
-const createHand = function (data) {
+const createHand = function (user, data) {
   event.preventDefault()
 
   // "hand": {
@@ -57,8 +57,10 @@ const createHand = function (data) {
       current_bet: 0
     }
   }
+  // const currentUser = store.tableData.user1_id
+  console.log(store.tableData)
   // sending it data so it knows what hand to update
-  api.createHand(hands)
+  api.createHand(1, hands)
     .then(ui.onCreateHandSuccess)
     .catch(ui.onCreateHandFailure)
 }
@@ -113,6 +115,25 @@ const makeTable = function (event) {
     .catch(ui.onCreateTableFailure)
 }
 
+const makeTablePopulated = function (event) {
+  event.preventDefault()
+  // console.log(store.user)
+  const table = {
+    table: {
+      user1_id: store.user.id,
+      user2_id: 2,
+      user3_id: 1,
+      user4_id: null,
+      deck: 'A2345678910JQK',
+      total_bet: 0,
+      turn_id: store.user.id
+    }
+  }
+  api.createTablePopulated(table)
+    .then(ui.onCreateTableSuccess)
+    .catch(ui.onCreateTableFailure)
+}
+
 const updateTable = function (event) {
   event.preventDefault()
 
@@ -153,6 +174,7 @@ module.exports = {
   onSignOut,
   onChangePassword,
   makeTable,
+  makeTablePopulated,
   updateTable,
   indexTable,
   deleteTable,
