@@ -87,6 +87,44 @@ const onUpdateTableFailure = function (data) {
   console.log('wah wah update didnt work')
 }
 
+const onIndexTableSuccess = function (data) {
+  console.log(data)
+  console.log('index table worked')
+}
+
+const onIndexTableFailure = function (data) {
+  console.log('index hand didnt work')
+}
+
+const onDeleteTableSuccess = function (data) {
+  console.log(data)
+  console.log('delete hand worked')
+}
+
+const onDeleteTableFailure = function (data) {
+  console.log('delete hand failed')
+}
+
+const onIndexHandSuccess = function (data) {
+  console.log(data)
+  console.log('index worked')
+}
+
+const onIndexHandFailure = function (data) {
+  console.log('index hand didnt work')
+}
+
+const onDeleteHandSuccess = function (data) {
+  console.log(data)
+  console.log('delete hand worked')
+}
+
+const onDeleteHandFailure = function (data) {
+  console.log('delete hand failed')
+}
+
+
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -100,8 +138,16 @@ module.exports = {
   onCreateTableFailure,
   onUpdateTableSuccess,
   onUpdateTableFailure,
+  onIndexTableSuccess,
+  onIndexTableFailure,
+  onDeleteTableSuccess,
+  onDeleteTableFailure,
   onCreateHandSuccess,
   onCreateHandFailure,
   onUpdateHandSuccess,
-  onUpdateHandFailure
+  onUpdateHandFailure,
+  onIndexHandSuccess,
+  onIndexHandFailure,
+  onDeleteHandSuccess,
+  onDeleteHandFailure
 }

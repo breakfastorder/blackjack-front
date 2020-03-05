@@ -61,6 +61,26 @@ const updateHand = function (data) {
   })
 }
 
+const indexHand = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/hands',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deleteHand = function (data) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/hands/' + store.handId,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const createTable = function (data) {
   return $.ajax({
     method: 'POST',
@@ -83,6 +103,26 @@ const updateTable = function (data) {
   })
 }
 
+const indexTable = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/tables',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deleteTable = function (data) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/tables/' + store.tableId,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -90,6 +130,10 @@ module.exports = {
   changePassword,
   createTable,
   updateTable,
+  indexTable,
+  deleteTable,
   createHand,
-  updateHand
+  updateHand,
+  indexHand,
+  deleteHand
 }

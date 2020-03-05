@@ -17,6 +17,11 @@ $(() => {
 
   $('#make-table').on('click', events.makeTable)
   $('#update-table').on('click', events.updateTable)
+  $('#index-table').on('click', events.indexTable)
+  $('#destroy-table').on('click', events.deleteTable)
+
   $('#create-hand').on('click', events.createHand)
   $('#update-hand').on('click', events.updateHand)
+  $('#index-hand').on('click', events.indexHand)
+  $('#destroy-hand').on('click', events.deleteHand)
 })

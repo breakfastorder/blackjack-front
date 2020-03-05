@@ -78,6 +78,22 @@ const updateHand = function (data) {
     .catch(ui.onUpdateHandFailure)
 }
 
+const indexHand = function (event) {
+  event.preventDefault()
+
+  api.indexHand()
+    .then(ui.onIndexHandSuccess)
+    .catch(ui.onIndexHandFailure)
+}
+
+const deleteHand = function (event) {
+  event.preventDefault()
+
+  api.deleteHand()
+    .then(ui.onDeleteHandSuccess)
+    .catch(ui.onDeleteHandFailure)
+}
+
 const makeTable = function (event) {
   event.preventDefault()
   // console.log(store.user)
@@ -115,6 +131,22 @@ const updateTable = function (event) {
     .then(ui.onUpdateTableSuccess)
     .catch(ui.onUpdateTableFailure)
 }
+
+const indexTable = function (event) {
+  event.preventDefault()
+
+  api.indexTable()
+    .then(ui.onIndexTableSuccess)
+    .catch(ui.onIndexTableFailure)
+}
+
+const deleteTable = function (event) {
+  event.preventDefault()
+
+  api.deleteTable()
+    .then(ui.onDeleteTableSuccess)
+    .catch(ui.onDelteTableFailure)
+}
 module.exports = {
   onSignUp,
   onSignIn,
@@ -122,6 +154,10 @@ module.exports = {
   onChangePassword,
   makeTable,
   updateTable,
+  indexTable,
+  deleteTable,
   createHand,
-  updateHand
+  updateHand,
+  indexHand,
+  deleteHand
 }
