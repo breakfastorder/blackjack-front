@@ -26,7 +26,7 @@ const onSignInSuccess = function (data) {
 }
 
 const onSignInFailure = function (data) {
-  ('#auth-messages').html('Sign in failed')
+  $('#auth-messages').html('Sign in failed')
 
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
