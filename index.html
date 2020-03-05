@@ -13,5 +13,41 @@
     </head>
     <body>
       <h1>Browser Template</h1>
+
+      <div id='auth-messages'></div>
+      <div id='game-messages'></div>
+      <form id='sign-up'>
+          <input name="credentials[email]" type="text" placeholder="an@example.email">
+          <input name="credentials[password]" type="password" placeholder="an example password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="an example password">
+          <input type='submit' value='Sign Up!'>
+     </form>
+
+     <form id='sign-in'>
+         <input name="credentials[email]" type="text" placeholder="an@example.email">
+         <input name="credentials[password]" type="password" placeholder="an example password">
+         <input type='submit' value='Sign in!'>
+    </form>
+
+    <form id='sign-out'>
+        <input type='submit' value='Sign out!'>
+   </form>
+
+   <form id='change-password'>
+       <input name="passwords[old]" type="password" placeholder="an@example.email">
+       <input name="passwords[new]" type="password" placeholder="an example password">
+       <input type='submit' value='Change password!'>
+  </form>
+
+  <button id='make-table' type='button'>Make a lobby</button>
+
+<button id='update-table' type='button'>Update Table</button>
+
+<button id='create-hand' type='button'>create hand</button>
+<button id='update-hand' type='button'>update hand</button>
+<button id='index-hand' type='button'>index hand</button>
+<button id='destroy-hand' type='button'>destroy hand</button>
+
+
     </body>
 </html>

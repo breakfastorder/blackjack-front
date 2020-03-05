@@ -1,0 +1,127 @@
+'use strict'
+const getFormFields = require('./../../../lib/get-form-fields')
+const api = require('./api')
+const ui = require('./ui')
+const store = require('./../store')
+
+
+const onSignUp = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+  api.signUp(data)
+    .then(ui.onSignUpSuccess)
+    .catch(ui.onSignUpFailure)
+}
+
+const onSignIn = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+  api.signIn(data)
+    .then(ui.onSignInSuccess)
+    .catch(ui.onSignInFailure)
+}
+
+const onSignOut = function (event) {
+  event.preventDefault()
+
+  api.signOut()
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutFailure)
+}
+
+const onChangePassword = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+  api.changePassword(data)
+    .then(ui.onChangePasswordSuccess)
+    .catch(ui.onChangePasswordFailure)
+}
+
+const createHand = function (data) {
+  event.preventDefault()
+
+  // "hand": {
+  //     "cards": "'"${CARDS}"'",
+  //     "current_bet": "'"${BET}"'"
+  //   }
+  const hands = {
+    hand: {
+      cards: '',
+      current_bet: 0
+    }
+  }
+  // sending it data so it knows what hand to update
+  api.createHand(hands)
+    .then(ui.onCreateHandSuccess)
+    .catch(ui.onCreateHandFailure)
+}
+
+const updateHand = function (data) {
+  event.preventDefault()
+
+  const hands = {
+    hand: {
+      cards: '',
+      current_bet: 100
+    }
+  }
+  // sending it data so it knows what hand to update
+  api.updateHand(hands)
+    .then(ui.onUpdateHandSuccess)
+    .catch(ui.onUpdateHandFailure)
+}
+
+const makeTable = function (event) {
+  event.preventDefault()
+  // console.log(store.user)
+  const table = {
+    table: {
+      user1_id: store.user.id,
+      user2_id: null,
+      user3_id: null,
+      user4_id: null,
+      deck: 'A2345678910JQK',
+      total_bet: 0,
+      turn_id: store.user.id
+    }
+  }
+  api.createTable(table)
+    .then(ui.onCreateTableSuccess)
+    .catch(ui.onCreateTableFailure)
+}
+
+const updateTable = function (event) {
+  event.preventDefault()
+
+  const table = {
+    table: {
+      user1_id: store.user.id,
+      user2_id: null,
+      user3_id: null,
+      user4_id: null,
+      deck: 'A2345678910JQK',
+      total_bet: 100,
+      turn_id: store.user.id
+    }
+  }
+  api.updateTable(table)
+    .then(ui.onUpdateTableSuccess)
+    .catch(ui.onUpdateTableFailure)
+}
+module.exports = {
+  onSignUp,
+  onSignIn,
+  onSignOut,
+  onChangePassword,
+  makeTable,
+  updateTable,
+  createHand,
+  updateHand
+}
