@@ -44,6 +44,56 @@ const onChangePassword = function (event) {
     .catch(ui.onChangePasswordFailure)
 }
 
+const createPlayer = function (user, data) {
+  event.preventDefault()
+
+  const player = {
+    player: {
+      name: 'Steve',
+      total_funds: 10
+    }
+  }
+  // const currentUser = store.tableData.user1_id
+  console.log(player)
+  // sending it data so it knows what hand to update
+  api.createPlayer(player)
+    .then(ui.onCreatePlayerSuccess)
+    .catch(ui.onCreatePlayerFailure)
+}
+
+const updatePlayer = function (data) {
+  event.preventDefault()
+
+  const player = {
+    player: {
+      name: 'Steve',
+      total_funds: 1000
+    }
+  }
+  // const currentUser = store.tableData.user1_id
+  console.log(player)
+  // sending it data so it knows what hand to update
+  api.updatePlayer(player)
+    .then(ui.onUpdatePlayerSuccess)
+    .catch(ui.onUpdatePlayerFailure)
+}
+
+const indexPlayer = function (event) {
+  event.preventDefault()
+
+  api.indexPlayer()
+    .then(ui.onIndexPlayerSuccess)
+    .catch(ui.onIndexPlayerFailure)
+}
+
+const deletePlayer = function (event) {
+  event.preventDefault()
+
+  api.deletePlayer
+    .then(ui.onDeletePlayerSuccess)
+    .catch(ui.onDeletePlayerFailure)
+}
+
 const createHand = function (user, data) {
   event.preventDefault()
 
@@ -58,7 +108,7 @@ const createHand = function (user, data) {
     }
   }
   // const currentUser = store.tableData.user1_id
-  console.log(store.tableData)
+  console.log(hands)
   // sending it data so it knows what hand to update
   api.createHand(1, hands)
     .then(ui.onCreateHandSuccess)
@@ -101,15 +151,12 @@ const makeTable = function (event) {
   // console.log(store.user)
   const table = {
     table: {
-      user1_id: store.user.id,
-      user2_id: null,
-      user3_id: null,
-      user4_id: null,
-      deck: 'A2345678910JQK',
-      total_bet: 0,
-      turn_id: store.user.id
+      deck: 'A2345678910JQKA2345678910JQKA2345678910JQKA2345678910JQK',
+      total_bet: 0
     }
   }
+
+  console.log(table)
   api.createTable(table)
     .then(ui.onCreateTableSuccess)
     .catch(ui.onCreateTableFailure)
@@ -178,6 +225,10 @@ module.exports = {
   updateTable,
   indexTable,
   deleteTable,
+  createPlayer,
+  updatePlayer,
+  indexPlayer,
+  deletePlayer,
   createHand,
   updateHand,
   indexHand,

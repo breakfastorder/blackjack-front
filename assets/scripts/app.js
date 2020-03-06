@@ -20,6 +20,11 @@ $(() => {
   $('#index-table').on('click', events.indexTable)
   $('#destroy-table').on('click', events.deleteTable)
 
+  $('#create-player').on('click', events.createPlayer)
+  $('#update-player').on('click', events.updatePlayer)
+  $('#index-player').on('click', events.indexPlayer)
+  $('#destroy-player').on('click', events.deletePlayer)
+
   $('#create-hand').on('click', events.createHand)
   $('#update-hand').on('click', events.updateHand)
   $('#index-hand').on('click', events.indexHand)

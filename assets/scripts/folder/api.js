@@ -39,6 +39,48 @@ const changePassword = function (data) {
   })
 }
 
+const createPlayer = function (user, data) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/players',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const updatePlayer = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/players/' + store.playerID,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const indexPlayer = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/players',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deletePlayer = function (data) {
+  return $.ajax({
+    method: 'DELETE',
+    url: config.apiUrl + '/players/' + store.playerID,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const createHand = function (user, data) {
   return $.ajax({
     method: 'POST',
@@ -144,6 +186,10 @@ module.exports = {
   updateTable,
   indexTable,
   deleteTable,
+  createPlayer,
+  updatePlayer,
+  indexPlayer,
+  deletePlayer,
   createHand,
   updateHand,
   indexHand,

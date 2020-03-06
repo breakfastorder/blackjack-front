@@ -52,7 +52,7 @@ const onChangePasswordFailure = function (data) {
 const onCreateHandSuccess = function (data) {
   console.log(data)
   store.handId = data.id
-  console.log('created hand, jack me off')
+  console.log('created hand,')
 }
 
 const onCreateHandFailure = function (data) {
@@ -61,12 +61,71 @@ const onCreateHandFailure = function (data) {
 
 const onUpdateHandSuccess = function (data) {
   console.log(data)
-  console.log('updated hand, now can jack me off in a different way')
+  console.log('updated hand')
 }
 
 const onUpdateHandFailure = function (data) {
   console.log('update failed')
 }
+
+const onIndexHandSuccess = function (data) {
+  console.log(data)
+  console.log('index worked')
+}
+
+const onIndexHandFailure = function (data) {
+  console.log('index hand didnt work')
+}
+
+const onDeleteHandSuccess = function (data) {
+  console.log(data)
+  console.log('delete hand worked')
+}
+
+const onDeleteHandFailure = function (data) {
+  console.log('delete hand failed')
+}
+
+// ----------------------------------------
+
+const onCreatePlayerSuccess = function (data) {
+  console.log(data)
+  store.handId = data.id
+  console.log('created player')
+}
+
+const onCreatePlayerFailure = function (data) {
+  console.log('failed to create player')
+}
+
+const onUpdatePlayerSuccess = function (data) {
+  console.log(data)
+  console.log('updated player')
+}
+
+const onUpdatePlayerFailure = function (data) {
+  console.log('uplaye pdate failed')
+}
+
+const onIndexPlayerSuccess = function (data) {
+  console.log(data)
+  console.log('index worked player')
+}
+
+const onIndexPlayerFailure = function (data) {
+  console.log('index player didnt work')
+}
+
+const onDeletePlayerSuccess = function (data) {
+  console.log(data)
+  console.log('delete player worked')
+}
+
+const onDeletePlayerFailure = function (data) {
+  console.log('delete player failed')
+}
+
+// ----------------------------------------
 
 const onCreateTableSuccess = function (data) {
   console.log(data)
@@ -106,23 +165,7 @@ const onDeleteTableFailure = function (data) {
   console.log('delete hand failed')
 }
 
-const onIndexHandSuccess = function (data) {
-  console.log(data)
-  console.log('index worked')
-}
 
-const onIndexHandFailure = function (data) {
-  console.log('index hand didnt work')
-}
-
-const onDeleteHandSuccess = function (data) {
-  console.log(data)
-  console.log('delete hand worked')
-}
-
-const onDeleteHandFailure = function (data) {
-  console.log('delete hand failed')
-}
 
 
 
@@ -135,6 +178,7 @@ module.exports = {
   onSignOutFailure,
   onChangePasswordSuccess,
   onChangePasswordFailure,
+  // --------------------
   onCreateTableSuccess,
   onCreateTableFailure,
   onUpdateTableSuccess,
@@ -143,6 +187,16 @@ module.exports = {
   onIndexTableFailure,
   onDeleteTableSuccess,
   onDeleteTableFailure,
+  // --------------------
+  onCreatePlayerSuccess,
+  onCreatePlayerFailure,
+  onUpdatePlayerSuccess,
+  onUpdatePlayerFailure,
+  onIndexPlayerSuccess,
+  onIndexPlayerFailure,
+  onDeletePlayerSuccess,
+  onDeletePlayerFailure,
+  // --------------------
   onCreateHandSuccess,
   onCreateHandFailure,
   onUpdateHandSuccess,
