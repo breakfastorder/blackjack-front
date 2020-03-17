@@ -7,26 +7,18 @@
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
-const events = require('./folder/events')
+const auth = require('./auth/events-auth')
+const hands = require('./hands/events-hands')
 
 $(() => {
-  $('#sign-up').on('submit', events.onSignUp)
-  $('#sign-in').on('submit', events.onSignIn)
-  $('#sign-out').on('submit', events.onSignOut)
-  $('#change-password').on('submit', events.onChangePassword)
+  $('#sign-up').on('submit', auth.onSignUp)
+  $('#sign-in').on('submit', auth.onSignIn)
+  $('#sign-out').on('submit', auth.onSignOut)
+  $('#change-password').on('submit', auth.onChangePassword)
 
-  $('#make-table').on('click', events.makeTable)
-  $('#update-table').on('click', events.updateTable)
-  $('#index-table').on('click', events.indexTable)
-  $('#destroy-table').on('click', events.deleteTable)
-
-  $('#create-player').on('click', events.createPlayer)
-  $('#update-player').on('click', events.updatePlayer)
-  $('#index-player').on('click', events.indexPlayer)
-  $('#destroy-player').on('click', events.deletePlayer)
-
-  $('#create-hand').on('click', events.createHand)
-  $('#update-hand').on('click', events.updateHand)
-  $('#index-hand').on('click', events.indexHand)
-  $('#destroy-hand').on('click', events.deleteHand)
+  $('#create-hand').on('click', hands.createHand)
+  $('#update-hand').on('click', hands.updateHand)
+  $('#index-hand').on('click', hands.indexHand)
+  $('#destroy-hand').on('click', hands.deleteHand)
+  $('#destroy-all-hand').on('click', hands.deleteAllHand)
 })
