@@ -9,6 +9,7 @@
 
 const auth = require('./auth/events-auth')
 const hands = require('./hands/events-hands')
+const table = require('./tables/events-tables')
 
 $(() => {
   $('#sign-up').on('submit', auth.onSignUp)
@@ -21,4 +22,10 @@ $(() => {
   $('#index-hand').on('click', hands.indexHand)
   $('#destroy-hand').on('click', hands.deleteHand)
   $('#destroy-all-hand').on('click', hands.deleteAllHand)
+
+  $('#create-table').on('click', table.createTable)
+  $('#update-table').on('click', table.updateTable)
+  $('#index-table').on('click', table.indexTable)
+  $('#destroy-table').on('click', table.deleteTable)
+  $('#destroy-all-table').on('click', table.deleteAllTable)
 })

@@ -14,7 +14,8 @@ const createHand = function (user, data) {
   const hands = {
     hand: {
       cards: '123',
-      current_bet: 0
+      current_bet: 0,
+      owner_name: store.user.email
     }
   }
   // const currentUser = store.tableData.user1_id
@@ -31,7 +32,8 @@ const updateHand = function (data) {
   const hands = {
     hand: {
       cards: '123',
-      current_bet: 100
+      current_bet: 100,
+      owner_name: store.user.email
     }
   }
   // sending it data so it knows what hand to update
