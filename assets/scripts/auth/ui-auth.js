@@ -49,6 +49,22 @@ const onChangePasswordFailure = function (data) {
   $('#auth-messages').html('Attempt to change password failed, please try again')
 }
 
+const onGetUserNameSuccess = function (data) {
+  console.log(data.user.username)
+}
+
+const onGetUserNameFailure = function (data) {
+  console.log('get username failed')
+}
+
+const onMakeUserNameSuccess = function (data) {
+  console.log(data)
+}
+
+const onMakeUserNameFailure = function (data) {
+  console.log('make username failed')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -57,5 +73,9 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onChangePasswordSuccess,
-  onChangePasswordFailure
+  onChangePasswordFailure,
+  onGetUserNameSuccess,
+  onGetUserNameFailure,
+  onMakeUserNameSuccess,
+  onMakeUserNameFailure
 }

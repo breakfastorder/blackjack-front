@@ -17,6 +17,9 @@ $(() => {
   $('#sign-out').on('submit', auth.onSignOut)
   $('#change-password').on('submit', auth.onChangePassword)
 
+  $('#get-name').on('click', auth.getUsername)
+  $('#make-username').on('submit', auth.makeUsername)
+
   $('#create-hand').on('click', hands.createHand)
   $('#update-hand').on('click', hands.updateHand)
   $('#index-hand').on('click', hands.indexHand)

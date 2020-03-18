@@ -39,9 +39,32 @@ const changePassword = function (data) {
   })
 }
 
+const getUsername = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/getUsername',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const makeUsername = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/makeUsername',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
-  changePassword
+  changePassword,
+  getUsername,
+  makeUsername
 }

@@ -42,9 +42,31 @@ const onChangePassword = function (event) {
     .then(ui.onChangePasswordSuccess)
     .catch(ui.onChangePasswordFailure)
 }
+
+const getUsername = function (event) {
+  event.preventDefault()
+
+  api.getUsername()
+    .then(ui.onGetUserNameSuccess)
+    .catch(ui.onGetUserNameFailure)
+}
+
+const makeUsername = function (event) {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getFormFields(form)
+  console.log(data)
+  api.makeUsername(data)
+    .then(ui.onMakeUserNameSuccess)
+    .catch(ui.onMakeUserNameFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword
+  onChangePassword,
+  getUsername,
+  makeUsername
 }
