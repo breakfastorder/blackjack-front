@@ -50,6 +50,28 @@ const indexTable = function (event) {
     .catch(ui.onIndexTableFailure)
 }
 
+const joinTable = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+
+  console.log(data)
+  api.joinTable(data)
+    .then(ui.onJoinTableSuccess)
+    .catch(ui.onJoinTableFailure)
+}
+
+const leaveTable = function (event) {
+  event.preventDefault()
+  const form = event.target
+  const data = getFormFields(form)
+
+  console.log(data)
+  api.leaveTable(data)
+    .then(ui.onLeaveTableSuccess)
+    .catch(ui.onLeaveTableFailure)
+}
+
 const deleteTable = function (event) {
   event.preventDefault()
 
@@ -70,6 +92,8 @@ module.exports = {
   createTable,
   updateTable,
   indexTable,
+  joinTable,
+  leaveTable,
   deleteTable,
   deleteAllTable
 }

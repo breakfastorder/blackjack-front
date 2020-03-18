@@ -34,6 +34,26 @@ const indexTable = function (data) {
   })
 }
 
+const joinTable = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/tables/join/' + data.table.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const leaveTable = function (data) {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/tables/leave/' + data.table.id,
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const deleteTable = function (data) {
   return $.ajax({
     method: 'DELETE',
@@ -58,6 +78,8 @@ module.exports = {
   createTable,
   updateTable,
   indexTable,
+  joinTable,
+  leaveTable,
   deleteTable,
   deleteAllTable
 }

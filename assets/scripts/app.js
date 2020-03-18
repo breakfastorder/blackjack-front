@@ -27,5 +27,7 @@ $(() => {
   $('#update-table').on('click', table.updateTable)
   $('#index-table').on('click', table.indexTable)
   $('#destroy-table').on('click', table.deleteTable)
+  $('#join-table').on('submit', table.joinTable)
+  $('#leave-table').on('submit', table.leaveTable)
   $('#destroy-all-table').on('click', table.deleteAllTable)
 })

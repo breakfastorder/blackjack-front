@@ -31,6 +31,24 @@ const onIndexTableFailure = function (data) {
   console.log('index table didnt work')
 }
 
+const onJoinTableSuccess = function (data) {
+  console.log(data)
+  console.log('Join worked')
+}
+
+const onJoinTableFailure = function (data) {
+  console.log('join table didnt work')
+}
+
+const onLeaveTableSuccess = function (data) {
+  console.log(data)
+  console.log('leave worked')
+}
+
+const onLeaveTableFailure = function (data) {
+  console.log('leave table didnt work')
+}
+
 const onDeleteTableSuccess = function (data) {
   console.log(data)
   console.log('delete table worked')
@@ -47,6 +65,10 @@ module.exports = {
   onUpdateTableFailure,
   onIndexTableSuccess,
   onIndexTableFailure,
+  onJoinTableSuccess,
+  onJoinTableFailure,
+  onLeaveTableSuccess,
+  onLeaveTableFailure,
   onDeleteTableSuccess,
   onDeleteTableFailure
 }
