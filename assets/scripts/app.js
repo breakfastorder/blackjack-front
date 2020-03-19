@@ -10,8 +10,30 @@
 const auth = require('./auth/events-auth')
 const hands = require('./hands/events-hands')
 const table = require('./tables/events-tables')
+const all = require('./allEvents')
 
 $(() => {
+  $('#sign-out').hide()
+  $('#change-password').hide()
+
+  $('#get-name').hide()
+  $('#make-username').hide()
+
+  $('#create-hand').hide()
+  $('#update-hand').hide()
+  $('#index-hand').hide()
+  $('#destroy-hand').hide()
+  $('#destroy-all-hand').hide()
+
+  $('#create-table').hide()
+  $('#update-table').hide()
+  $('#index-table').hide()
+  $('#destroy-table').hide()
+  $('#join-table').hide()
+  $('#leave-table-user').hide()
+  $('#leave-table-owner').hide()
+  $('#destroy-all-table').hide()
+
   $('#sign-up').on('submit', auth.onSignUp)
   $('#sign-in').on('submit', auth.onSignIn)
   $('#sign-out').on('submit', auth.onSignOut)
@@ -26,11 +48,14 @@ $(() => {
   $('#destroy-hand').on('click', hands.deleteHand)
   $('#destroy-all-hand').on('click', hands.deleteAllHand)
 
-  $('#create-table').on('click', table.createTable)
+  $('#create-table').on('click', all.createTable)
   $('#update-table').on('click', table.updateTable)
   $('#index-table').on('click', table.indexTable)
   $('#destroy-table').on('click', table.deleteTable)
-  $('#join-table').on('submit', table.joinTable)
-  $('#leave-table').on('submit', table.leaveTable)
+  $('#join-table').on('submit', all.joinTable)
+  $('#leave-table-user').on('submit', table.leaveTableAsUser)
+  $('#leave-table-owner').on('submit', table.leaveTableAsOwner)
   $('#destroy-all-table').on('click', table.deleteAllTable)
+
+  $('#deal-table').on('click', all.dealTable)
 })

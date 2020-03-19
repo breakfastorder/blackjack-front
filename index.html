@@ -44,32 +44,41 @@
        <input type='submit' value='Change password!'>
   </form>
 
-  <button id='get-name' type='button'>get name</button>
+<button id='get-name' type='button'>get name</button>
 
-<button id='create-hand' type='button'>create hand</button>
+ <button id='create-hand' type='button'>create hand</button>
+ <!--
 <button id='update-hand' type='button'>update hand</button>
 <button id='index-hand' type='button'>index hand</button>
-<button id='destroy-hand' type='button'>destroy hand</button>
+<button id='destroy-hand' type='button'>destroy hand</button> -->
 
 <button id='destroy-all-hand' type='button'>destroy ALL hand</button>
 
+<button id='destroy-all-table' type='button'>destroy ALL table</button>
+
 
 <button id='create-table' type='button'>create table</button>
+<!--
 <button id='update-table' type='button'>update table</button>
 <button id='index-table' type='button'>index table</button>
-<button id='destroy-table' type='button'>destroy table</button>
+<button id='destroy-table' type='button'>destroy table</button> -->
 
 <form id='join-table'>
-    <input name="table[id]" type="text" placeholder="an@example.email">
+    <input name="table[id]" type="text" placeholder="Table Id">
     <input type='submit' value='Join table!'>
 </form>
 
-<form id='leave-table'>
-    <input name="table[id]" type="text" placeholder="an@example.email">
-    <input type='submit' value='leave table!'>
+<form id='leave-table-user'>
+    <input name="table[id]" type="text" placeholder="Table id">
+    <input type='submit' value='leave user table!'>
 </form>
 
-<button id='destroy-all-table' type='button'>destroy ALL table</button>
+<form id='leave-table-owner'>
+    <input name="table[id]" type="text" placeholder="table id">
+    <input type='submit' value='leave owner table!'>
+</form>
+
+<button id='deal-table' type='button'>deal table</button>
 
 
     </body>

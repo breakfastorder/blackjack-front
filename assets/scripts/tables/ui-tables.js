@@ -58,6 +58,18 @@ const onDeleteTableFailure = function (data) {
   console.log('delete table failed')
 }
 
+const checkHostIdFailure = function (data) {
+  console.log('getting hostid failed')
+}
+
+const onDealTableSuccess = function (data) {
+  console.log(data)
+}
+
+const onDealTableFailure = function (data) {
+  console.log('deal no work')
+}
+
 module.exports = {
   onCreateTableSuccess,
   onCreateTableFailure,
@@ -70,5 +82,8 @@ module.exports = {
   onLeaveTableSuccess,
   onLeaveTableFailure,
   onDeleteTableSuccess,
-  onDeleteTableFailure
+  onDeleteTableFailure,
+  checkHostIdFailure,
+  onDealTableSuccess,
+  onDealTableFailure
 }

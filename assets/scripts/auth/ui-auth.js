@@ -19,6 +19,32 @@ const onSignUpFailure = function (data) {
 
 const onSignInSuccess = function (data) {
   store.user = data.user
+
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+
+  $('#sign-out').show()
+  $('#change-password').show()
+
+  $('#get-name').show()
+  $('#make-username').show()
+
+  $('#create-hand').show()
+  $('#update-hand').show()
+  $('#index-hand').show()
+  $('#destroy-hand').show()
+  $('#destroy-all-hand').show()
+
+  $('#create-table').show()
+  $('#update-table').show()
+  $('#index-table').show()
+  $('#destroy-table').show()
+  $('#join-table').show()
+  $('#leave-table-user').show()
+  $('#leave-table-owner').show()
+  $('#destroy-all-table').show()
+
+
   $('#auth-messages').html(data.user.email + ' has signed in successfully')
 
   $('#sign-up').trigger('reset')
@@ -34,6 +60,30 @@ const onSignInFailure = function (data) {
 
 const onSignOutSuccess = function (data) {
   store.user = null
+  $('#sign-up').show()
+  $('#sign-in').show()
+
+  $('#sign-out').hide()
+  $('#change-password').hide()
+
+  $('#get-name').hide()
+  $('#make-username').hide()
+
+  $('#create-hand').hide()
+  $('#update-hand').hide()
+  $('#index-hand').hide()
+  $('#destroy-hand').hide()
+  $('#destroy-all-hand').hide()
+
+  $('#create-table').hide()
+  $('#update-table').hide()
+  $('#index-table').hide()
+  $('#destroy-table').hide()
+  $('#join-table').hide()
+  $('#leave-table-user').hide()
+  $('#leave-table-owner').hide()
+  $('#destroy-all-table').hide()
+
   $('#auth-messages').html('User has signed out successfully')
 }
 

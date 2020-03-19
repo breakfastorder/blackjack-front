@@ -74,6 +74,27 @@ const deleteAllTable = function (data) {
   })
 }
 
+const checkHostId = function (data) {
+  return $.ajax({
+    method: 'GET',
+    url: config.apiUrl + '/tables/gameId',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const dealTable = function (data) {
+  return $.ajax({
+    method: 'POST',
+    url: config.apiUrl + '/tables/users',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   createTable,
   updateTable,
@@ -81,5 +102,7 @@ module.exports = {
   joinTable,
   leaveTable,
   deleteTable,
-  deleteAllTable
+  deleteAllTable,
+  checkHostId,
+  dealTable
 }
