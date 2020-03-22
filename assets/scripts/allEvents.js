@@ -118,7 +118,7 @@ const dealTable = function (event) {
   event.preventDefault()
   const data = {
     update: {
-      data: '1'
+      data: ['1', '2', '3', '4']
     }
   }
   tableApi.dealTable(data)
@@ -126,10 +126,17 @@ const dealTable = function (event) {
     .catch(tableUi.onDealTableFailure)
 }
 
+const deleteUserHands = function () {
+  authApi.deleteAllUserHands()
+    .then(console.log('done'))
+    .catch(console.log('didnt'))
+}
+
 module.exports = {
   dealTable,
   joinTable,
   leaveTableAsUser,
   leaveTableAsOwner,
-  createTable
+  createTable,
+  deleteUserHands
 }

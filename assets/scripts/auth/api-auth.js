@@ -60,11 +60,22 @@ const makeUsername = function (data) {
   })
 }
 
+const deleteAllUserHands = function () {
+  return $.ajax({
+    method: 'PATCH',
+    url: config.apiUrl + '/deleteUserHands',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   signOut,
   changePassword,
   getUsername,
-  makeUsername
+  makeUsername,
+  deleteAllUserHands
 }
