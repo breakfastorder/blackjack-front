@@ -87,7 +87,7 @@ const checkHostId = function (data) {
 const dealTable = function (data) {
   return $.ajax({
     method: 'POST',
-    url: config.apiUrl + '/tables/users',
+    url: config.apiUrl + '/tables/users/' + store.tableId,
     headers: {
       Authorization: 'Token token=' + store.user.token
     },

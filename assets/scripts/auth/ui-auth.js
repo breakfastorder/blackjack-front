@@ -19,6 +19,7 @@ const onSignUpFailure = function (data) {
 
 const onSignInSuccess = function (data) {
   store.user = data.user
+  store.user.username = data.user.email
 
   $('#sign-up').hide()
   $('#sign-in').hide()

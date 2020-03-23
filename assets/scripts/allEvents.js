@@ -14,7 +14,7 @@ const store = require('./store')
 const createTable = function (user, data) {
   event.preventDefault()
 
-  let gameId = 1
+  let gameId = Math.floor(Math.random() * 1001)
   // let hostId = Math.floor(Math.random() * 1001)
   tableApi.checkHostId()
     .then(numbers => {
@@ -50,7 +50,7 @@ const createTable = function (user, data) {
         table: {
           cards: 'A123456789xjqkA123456789xjqkA123456789xjqkA123456789xjqk',
           total_bet: 0,
-          owner_name: store.user.email,
+          owner_name: store.user.username,
           players: [store.user._id],
           game_id: gameId
         }
@@ -107,7 +107,6 @@ const leaveTableAsOwner = function (event) {
   const form = event.target
   const data = getFormFields(form)
 
-  console.log(data)
   tableApi.leaveTable(data)
     .then(tableApi.deleteTable)
     .then(tableUi.onLeaveTableSuccess)
@@ -118,7 +117,7 @@ const dealTable = function (event) {
   event.preventDefault()
   const data = {
     update: {
-      data: ['1', '2', '3', '4']
+      data: ['phony']
     }
   }
   tableApi.dealTable(data)
@@ -128,8 +127,8 @@ const dealTable = function (event) {
 
 const deleteUserHands = function () {
   authApi.deleteAllUserHands()
-    .then(console.log('done'))
-    .catch(console.log('didnt'))
+    .then(a => console.log('done'))
+    .catch(b => console.log('didnt'))
 }
 
 module.exports = {

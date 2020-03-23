@@ -6,6 +6,7 @@ const store = require('./../store')
 const onCreateTableSuccess = function (data) {
   console.log(data)
   store.tableId = data.table._id
+  console.log(store.tableId)
   console.log('created table,')
 }
 
