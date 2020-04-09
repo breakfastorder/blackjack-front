@@ -58,6 +58,7 @@ $(() => {
   $('#destroy-all-table').on('click', table.deleteAllTable)
 
   $('#deal-table').on('click', all.dealTable)
+  $('#deal-player').on('click', all.dealPlayer)
 
   $('#delete-user-hands').on('click', all.deleteUserHands)
 })

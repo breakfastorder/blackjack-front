@@ -125,6 +125,20 @@ const dealTable = function (event) {
     .catch(tableUi.onDealTableFailure)
 }
 
+const dealPlayer = function (event) {
+  event.preventDefault()
+  const data = {
+    update: {
+      player: store.user._id,
+      data: ['phony']
+    }
+  }
+  console.log(data)
+  tableApi.dealPlayer(data)
+    .then(tableUi.onDealTableSuccess)
+    .catch(tableUi.onDealTableFailure)
+}
+
 const deleteUserHands = function () {
   authApi.deleteAllUserHands()
     .then(a => console.log('done'))
@@ -133,6 +147,7 @@ const deleteUserHands = function () {
 
 module.exports = {
   dealTable,
+  dealPlayer,
   joinTable,
   leaveTableAsUser,
   leaveTableAsOwner,
