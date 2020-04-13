@@ -57,7 +57,7 @@ $(() => {
   $('#leave-table-owner').on('submit', table.leaveTableAsOwner)
   $('#destroy-all-table').on('click', table.deleteAllTable)
 
-  $('#deal-table').on('click', all.dealTable)
+  $('#deal-table').on('click', all.startGameAndDeal)
   $('#deal-player').on('click', all.dealPlayer)
 
   $('#delete-user-hands').on('click', all.deleteUserHands)

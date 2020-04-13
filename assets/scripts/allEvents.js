@@ -113,30 +113,33 @@ const leaveTableAsOwner = function (event) {
     .catch(tableUi.onLeaveTableFailure)
 }
 
-const dealTable = function (event) {
-  event.preventDefault()
-  const data = {
-    update: {
-      data: ['phony']
-    }
-  }
-  tableApi.dealTable(data)
-    .then(tableUi.onDealTableSuccess)
-    .catch(tableUi.onDealTableFailure)
-}
+// const dealTable = function (event) {
+//   event.preventDefault()
+//   const data = {
+//     update: {
+//       data: ['phony']
+//     }
+//   }
+//   tableApi.dealTable(data)
+//     .then(tableUi.onDealTableSuccess)
+//     .catch(tableUi.onDealTableFailure)
+// }
 
-const dealPlayer = function (event) {
-  event.preventDefault()
-  const data = {
-    update: {
-      player: store.user._id,
-      data: ['phony']
+const dealPlayer = function () {
+  // event.preventDefault()
+  // console.log(store.playersAtTable.tables.players)
+  const players = store.playersAtTable.tables.players
+  for (let i = 0; i < players.length; i++) {
+    const data = {
+      update: {
+        player: players[i],
+        data: ['phony']
+      }
     }
+    // console.log(data)
+    tableApi.dealPlayer(data)
+      .catch(tableUi.onDealTableFailure)
   }
-  console.log(data)
-  tableApi.dealPlayer(data)
-    .then(tableUi.onDealTableSuccess)
-    .catch(tableUi.onDealTableFailure)
 }
 
 const deleteUserHands = function () {
@@ -145,12 +148,25 @@ const deleteUserHands = function () {
     .catch(b => console.log('didnt'))
 }
 
+const startGameAndDeal = function () {
+  const data = {
+    update: {
+      data: ['phony']
+    }
+  }
+  tableApi.dealTable(data)
+    .then(tableUi.onDealTableSuccess)
+    .then(dealPlayer)
+    .catch(tableUi.onDealTableFailure)
+}
+
 module.exports = {
-  dealTable,
+  // dealTable,
   dealPlayer,
   joinTable,
   leaveTableAsUser,
   leaveTableAsOwner,
   createTable,
-  deleteUserHands
+  deleteUserHands,
+  startGameAndDeal
 }

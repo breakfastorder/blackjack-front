@@ -2,6 +2,7 @@
 'use strict'
 
 const store = require('./../store')
+// const play = require('./../playGame')
 
 const onCreateTableSuccess = function (data) {
   console.log(data)
@@ -65,6 +66,21 @@ const checkHostIdFailure = function (data) {
 
 const onDealTableSuccess = function (data) {
   console.log(data)
+  store.playersAtTable = data
+  const players = data.tables.players
+  console.log(players)
+  if (players[0] !== null) {
+    $('#player-one').html(players[0])
+  }
+  if (players[1] !== null) {
+    $('#player-two').html(players[1])
+  }
+  if (players[2] !== null) {
+    $('#player-three').html(players[2])
+  }
+  if (players[3] !== null) {
+    $('#player-four').html(players[3])
+  }
 }
 
 const onDealTableFailure = function (data) {
