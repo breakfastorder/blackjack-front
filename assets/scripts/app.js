@@ -60,5 +60,10 @@ $(() => {
   $('#deal-table').on('click', all.startGameAndDeal)
   $('#deal-player').on('click', all.dealPlayer)
 
+  $('#deal-player-one').on('click', all.dealPlayer)
+  $('#deal-player-two').on('click', all.dealPlayer)
+  $('#deal-player-three').on('click', all.dealPlayer)
+  $('#deal-player-four').on('click', all.dealPlayer)
+
   $('#delete-user-hands').on('click', all.deleteUserHands)
 })

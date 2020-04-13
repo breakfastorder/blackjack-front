@@ -125,21 +125,34 @@ const leaveTableAsOwner = function (event) {
 //     .catch(tableUi.onDealTableFailure)
 // }
 
-const dealPlayer = function () {
-  // event.preventDefault()
-  // console.log(store.playersAtTable.tables.players)
+const dealPlayer = function (event) {
+  event.preventDefault()
   const players = store.playersAtTable.tables.players
-  for (let i = 0; i < players.length; i++) {
-    const data = {
-      update: {
-        player: players[i],
-        data: ['phony']
-      }
-    }
-    // console.log(data)
-    tableApi.dealPlayer(data)
-      .catch(tableUi.onDealTableFailure)
+  console.log(event.target.id)
+  let currentPlayer = ''
+  if (event.target.id.includes('one')) {
+    currentPlayer = players[0]
   }
+  if (event.target.id.includes('two')) {
+    currentPlayer = players[1]
+  }
+  if (event.target.id.includes('three')) {
+    currentPlayer = players[2]
+  }
+  if (event.target.id.includes('four')) {
+    currentPlayer = players[3]
+  }
+
+  console.log(currentPlayer)
+  const data = {
+    update: {
+      player: currentPlayer,
+      data: ['phony']
+    }
+  }
+  // console.log(data)
+  tableApi.dealPlayer(data)
+    .catch(tableUi.onDealTableFailure)
 }
 
 const deleteUserHands = function () {
