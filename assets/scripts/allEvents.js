@@ -56,18 +56,17 @@ const createTable = function (user, data) {
         }
       }
 
-      const hands = {
-        hand: {
-          cards: '123',
-          current_bet: 0,
-          owner_name: store.user.email
-        }
-      }
+      // const hands = {
+      //   hand: {
+      //     cards: '123',
+      //     current_bet: 0,
+      //     owner_name: store.user.email
+      //   }
+      // }
       // const currentUser = store.tableData.user1_id
-      console.log(tables)
+      // console.log(tables)
       // sending it data so it knows what table to update
       tableApi.createTable(tables)
-        .then(handsApi.createHand(hands))
         .then(tableUi.onCreateTableSuccess)
         .catch(tableUi.onCreateTableFailure)
     })
@@ -78,26 +77,13 @@ const joinTable = function (event) {
   event.preventDefault()
   const form = event.target
   const data = getFormFields(form)
-  const hands = {
-    hand: {
-      cards: '123',
-      current_bet: 0,
-      owner_name: store.user.email
-    }
-  }
   tableApi.joinTable(data)
-    .then(handsApi.createHand(hands))
     .then(tableUi.onJoinTableSuccess)
     .catch(tableUi.onJoinTableFailure)
 }
 
-const leaveTableAsUser = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-
-  console.log(data)
-  tableApi.leaveTable(data)
+const leaveTableAsUser = function () {
+  tableApi.leaveTable()
     .then(tableUi.onLeaveTableSuccess)
     .catch(tableUi.onLeaveTableFailure)
 }
@@ -152,6 +138,7 @@ const dealPlayer = function (event) {
   }
   // console.log(data)
   tableApi.dealPlayer(data)
+    .then(tableUi.showCards)
     .catch(tableUi.onDealTableFailure)
 }
 
@@ -169,7 +156,6 @@ const startGameAndDeal = function () {
   }
   tableApi.dealTable(data)
     .then(tableUi.onDealTableSuccess)
-    .then(dealPlayer)
     .catch(tableUi.onDealTableFailure)
 }
 

@@ -24,6 +24,11 @@ const onSignInSuccess = function (data) {
   $('#sign-up').hide()
   $('#sign-in').hide()
 
+  $('#player-one-header').show()
+  $('#player-two-header').show()
+  $('#player-three-header').show()
+  $('#player-four-header').show()
+
   $('#sign-out').show()
   $('#change-password').show()
 

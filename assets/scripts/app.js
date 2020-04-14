@@ -34,6 +34,11 @@ $(() => {
   $('#leave-table-owner').hide()
   $('#destroy-all-table').hide()
 
+  $('#player-one-header').hide()
+  $('#player-two-header').hide()
+  $('#player-three-header').hide()
+  $('#player-four-header').hide()
+
   $('#sign-up').on('submit', auth.onSignUp)
   $('#sign-in').on('submit', auth.onSignIn)
   $('#sign-out').on('submit', auth.onSignOut)
@@ -53,7 +58,8 @@ $(() => {
   $('#index-table').on('click', table.indexTable)
   $('#destroy-table').on('click', table.deleteTable)
   $('#join-table').on('submit', all.joinTable)
-  $('#leave-table-user').on('submit', table.leaveTableAsUser)
+  // $('#leave-table-user').on('submit', table.leaveTableAsUser)
+  $('#leave-table-user').on('click', all.leaveTableAsUser)
   $('#leave-table-owner').on('submit', table.leaveTableAsOwner)
   $('#destroy-all-table').on('click', table.deleteAllTable)
 

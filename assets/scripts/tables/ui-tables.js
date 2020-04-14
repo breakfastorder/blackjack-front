@@ -70,21 +70,29 @@ const onDealTableSuccess = function (data) {
   const players = data.tables.players
   console.log(players)
   if (players[0] !== null) {
+    $('#player-one-header').show()
     $('#player-one').html(players[0])
   }
   if (players[1] !== null) {
+    $('#player-two-header').show()
     $('#player-two').html(players[1])
   }
   if (players[2] !== null) {
+    $('#player-three-header').show()
     $('#player-three').html(players[2])
   }
   if (players[3] !== null) {
+    $('#player-four-header').show()
     $('#player-four').html(players[3])
   }
 }
 
 const onDealTableFailure = function (data) {
   console.log('deal no work')
+}
+
+const showCards = function (data) {
+  console.log(data)
 }
 
 module.exports = {
@@ -102,5 +110,6 @@ module.exports = {
   onDeleteTableFailure,
   checkHostIdFailure,
   onDealTableSuccess,
-  onDealTableFailure
+  onDealTableFailure,
+  showCards
 }

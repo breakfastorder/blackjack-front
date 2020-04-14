@@ -13,13 +13,12 @@ const createHand = function (user, data) {
   //   }
   const hands = {
     hand: {
-      cards: '123',
+      cards: '',
       current_bet: 0,
       owner_name: store.user.email
     }
   }
   // const currentUser = store.tableData.user1_id
-  console.log(hands)
   // sending it data so it knows what hand to update
   api.createHand(hands)
     .then(ui.onCreateHandSuccess)
